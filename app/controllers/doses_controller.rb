@@ -6,7 +6,8 @@ before_action :set_dose, only: [:destroy]
  end
 
  def create
-  Dose.create(dose_params)
+  @dose = Dose.create(dose_params)
+  @dose.cocktail = @cocktail
   redirect_to cocktail_path(@cocktail)
  end
 

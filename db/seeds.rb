@@ -7,26 +7,17 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 puts 'Cleaning database...'
-Cocktail.destroy_all
+Ingredient.destroy_all
 
-cocktails_attributes = []
+# fake cocktails
 
-puts 'Creating 10 fake cocktails à l\'ancienne...'
+# fake ingredients
+puts 'Start creating 10 fake ingredients à l\'ancienne...'
+ingredients_attributes = []
 10.times do
-  cocktails_attributes << { name: Faker::Company.name }
+  ingredients_attributes << { name: Faker::Food.ingredient }
 end
-
-Cocktail.create!(cocktails_attributes)
+Ingredient.create!(ingredients_attributes)
 puts 'Finished!'
-puts "Creating #{cocktails_attributes.count} fake cocktails"
+puts "End creating #{ingredients_attributes.count} fake ingredients"
 
-doses_attributes = []
-
-puts 'Creating 10 fake doses à l\'ancienne...'
-10.times do
-  doses_attributes << { "#{ description: Faker::Number.number(2) } ml" }
-end
-
-Dose.create!(doses_attributes)
-puts 'Finished!'
-puts "Creating #{doses_attributes.count} fake doses"
