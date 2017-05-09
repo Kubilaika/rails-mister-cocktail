@@ -9,8 +9,6 @@ require 'faker'
 puts 'Cleaning database...'
 Ingredient.destroy_all
 
-# fake cocktails
-
 # fake ingredients
 puts 'Start creating 10 fake ingredients à l\'ancienne...'
 ingredients_attributes = []

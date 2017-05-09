@@ -14,8 +14,12 @@ before_action :set_cocktail, only: [:show, :edit, :update, :destroy]
  end
 
  def create
-  Cocktail.create(cocktail_params)
-  redirect_to cocktails_path
+  @cocktail = Cocktail.new(cocktail_params)
+   if @cocktail.save
+     redirect_to cocktail_path(@cocktail)
+   else
+     render :new
+   end
  end
 
  def edit
@@ -23,7 +27,11 @@ before_action :set_cocktail, only: [:show, :edit, :update, :destroy]
 
  def update
   @cocktail.update(cocktail_params)
-  redirect_to cocktails_path
+  if @cocktail.update(cocktail_params)
+   redirect_to cocktails_path
+  else
+   render :edit
+  end
  end
 
  def destroy
