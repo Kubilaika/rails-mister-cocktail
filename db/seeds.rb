@@ -5,17 +5,22 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-require 'faker'
-puts 'Cleaning database...'
-Ingredient.destroy_all
 
-# fake ingredients
-puts 'Start creating 10 fake ingredients à l\'ancienne...'
-ingredients_attributes = []
-10.times do
-  ingredients_attributes << { name: Faker::Food.ingredient }
-end
+Ingredient.destroy_all
+ingredients_attributes = [{name: "lemon"}, {name: "mint"}, {name: "tomato"}, {name: "ice"}, {name: "soda"}]
 Ingredient.create!(ingredients_attributes)
-puts 'Finished!'
-puts "End creating #{ingredients_attributes.count} fake ingredients"
+
+
+# require 'faker'
+# puts 'Cleaning database...'
+# Ingredient.destroy_all
+
+# puts 'Start creating 10 fake ingredients à l\'ancienne...'
+# ingredients_attributes = []
+# 10.times do
+#   ingredients_attributes << { name: Faker::Food.ingredient }
+# end
+# Ingredient.create!(ingredients_attributes)
+# puts 'Finished!'
+# puts "End creating #{ingredients_attributes.count} fake ingredients"
 
