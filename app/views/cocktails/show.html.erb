@@ -1,4 +1,5 @@
 <h1><%= @cocktail.name %></h1>
+<%= image_tag @cocktail.photo.url(:bright_face) %>
 <%= link_to "add a dose", new_cocktail_dose_path(@cocktail) %>
 <ul>
   <% @doses.each do |dose| %>
